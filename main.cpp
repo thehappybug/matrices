@@ -13,24 +13,24 @@ int main(int argc, char const *argv[])
 	Matrix m6;
 
 	cout << "Matrix m1:" << endl; 
-	m1.display();
+	cout << m1.display();
 
 	cout << "Matrix m2:" << endl; 
-	m2.display();
+	cout << m2.display();
 
 	cout << "Matrix m3:" << endl; 
-	m3.display();
+	cout << m3.display();
 
 	cout << "Matrix m4 = m1 + m2:" << endl; 
 	m4 = m1 + m2;
-	m4.display();
+	cout << m4.display();
 
 	cout << "Matrix m5 = m2 * m3:" << endl; 
 	m5 = m2 * m3;
-	m5.display();
+	cout << m5.display();
 
 	cout << "Matrix m6 = m2 * m3 + m1:" << endl; 
 	m6 = m2 * m3 + m1;
-	m6.display();
+	cout << m6.display();
 	return 0;
 }

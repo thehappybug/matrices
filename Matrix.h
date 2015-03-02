@@ -10,7 +10,7 @@ public:
 
 	~Matrix(); 
 
-	void display(); 
+	const char *display(); 
 
 	Matrix operator +(Matrix m2);
 

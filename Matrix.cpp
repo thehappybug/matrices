@@ -1,6 +1,8 @@
 #include "Matrix.h"
 #include <iomanip>
 #include <iostream>
+#include <sstream>
+
 using namespace std;
 
 Matrix::Matrix() 
@@ -29,12 +31,14 @@ Matrix::~Matrix()
 { 
 }
 
-void Matrix::display() 
+const char *Matrix::display() 
 { 
-	cout << "[ " << std::fixed << std::setw( 6 ) << std::setprecision( 2 ) << std::setfill( '0' ) << ms[0][0] << ", ";
-	cout << std::fixed << std::setw( 6 ) << std::setprecision( 2 ) << std::setfill( '0' ) << ms[0][1] << " ]" << endl;
-	cout << "[ " << std::fixed << std::setw( 6 ) << std::setprecision( 2 ) << std::setfill( '0' ) << ms[1][0] << ", ";
-	cout << std::fixed << std::setw( 6 ) << std::setprecision( 2 ) << std::setfill( '0' ) << ms[1][1] << " ]" << endl;
+	stringstream ss;
+	ss << "[ " << std::fixed << std::setw( 6 ) << std::setprecision( 2 ) << std::setfill( '0' ) << ms[0][0] << ", ";
+	ss << std::fixed << std::setw( 6 ) << std::setprecision( 2 ) << std::setfill( '0' ) << ms[0][1] << " ]" << endl;
+	ss << "[ " << std::fixed << std::setw( 6 ) << std::setprecision( 2 ) << std::setfill( '0' ) << ms[1][0] << ", ";
+	ss << std::fixed << std::setw( 6 ) << std::setprecision( 2 ) << std::setfill( '0' ) << ms[1][1] << " ]" << endl;
+	return ss.str().c_str();
 }
 
 Matrix Matrix::operator +(Matrix m2)
