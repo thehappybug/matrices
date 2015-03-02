@@ -29,9 +29,9 @@ CXXFLAGS += -g -Wall -Wextra -pthread
 
 # All tests produced by this Makefile.  Remember to add new tests you
 # created to the list.
-TESTS = mycode_unittest
+TESTS = matrix_unittest
 
-MAIN = mycode_main
+MAIN = matrix_main
 
 # All Google Test headers.  Usually you shouldn't change this
 # definition.
@@ -73,15 +73,15 @@ gtest_main.a : gtest-all.o gtest_main.o
 # gtest_main.a, depending on whether it defines its own main()
 # function.
 
-mycode.o : $(USER_DIR)/mycode.cpp $(USER_DIR)/mycode.h $(GTEST_HEADERS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/mycode.cpp
+Matrix.o : $(USER_DIR)/Matrix.cpp $(USER_DIR)/Matrix.h $(GTEST_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/Matrix.cpp
 
-mycode_unittest.o : $(USER_DIR)/mycode_unittest.cc \
-                     $(USER_DIR)/mycode.h $(GTEST_HEADERS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/mycode_unittest.cc
+tests.o : $(USER_DIR)/tests.cpp \
+                     $(USER_DIR)/Matrix.h $(GTEST_HEADERS)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/tests.cpp
 
-mycode_unittest : mycode.o mycode_unittest.o gtest_main.a
+matrix_unittest : Matrix.o tests.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
 
-mycode_main:
-	g++ mycode.cpp main.cpp -o add_main
+matrix_main:
+	g++ Matrix.cpp main.cpp -o matrix_main
