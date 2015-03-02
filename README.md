@@ -8,9 +8,9 @@
                                         
 ```
 
-*Authored by: Mehdi Raza*
-*Version: 1*
-*Timestamp: 1425319847*
+*Authored by*: Mehdi Raza  
+*Version*: 1  
+*Timestamp*: 1425319847
 
 ## Introduction
 
@@ -19,7 +19,7 @@ Matrices program was written for Lab 2 of Advanced Programming.
 It demonstrate the use of classes in the Matrix class. The interface for
 the Matrix class is given below:
 
-```
+```c++
 class Matrix {
 
 public:
