@@ -14,9 +14,10 @@
 
 # Points to the root of Google Test, relative to where this file is.
 # Remember to tweak this if you move this file.
-GTEST_DIR = ../gtest-1.7.0
+# GTEST_DIR = ../gtest
 
 # Where to find user code.
+
 USER_DIR = ./
 
 # Flags passed to the preprocessor.
@@ -81,6 +82,10 @@ tests.o : $(USER_DIR)/tests.cpp \
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/tests.cpp
 
 matrix_unittest : Matrix.o tests.o gtest_main.a
+ifndef GTEST_DIR
+	$(info Enviroment variable GTEST_DIR needs to be set before compilation.)
+	exit 1
+endif
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
 
 matrix_main:
